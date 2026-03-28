@@ -111,16 +111,32 @@ const SlideCanvas = forwardRef<HTMLDivElement, SlideCanvasProps>(({ slide, scale
         </div>
       </div>
 
-      {/* Top Left Icon - Modern minimalist design */}
-      <div className="poster-icon" style={{ top: '2rem', left: '2rem' }}>
-        <svg width="32" height="32" viewBox="0 0 24 24" fill={slide.accentColor} style={{ opacity: 0.9, transition: 'colors 0.5s' }}>
-          <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
-        </svg>
-      </div>
+      {/* Top Left - Brand Identity (Name Only) */}
+      {slide.brandName && (
+        <div className="poster-brand-container" style={{ 
+          position: 'absolute', 
+          top: '3.5rem', 
+          left: '2rem', 
+          zIndex: 20 
+        }}>
+          <span 
+            className="brand-name-text" 
+            style={{ 
+              fontSize: '1.2rem', 
+              fontWeight: 800, 
+              color: 'var(--text-headline)',
+              opacity: 0.9,
+              fontFamily: '"Tajawal", sans-serif'
+            }}
+          >
+            {slide.brandName}
+          </span>
+        </div>
+      )}
 
-      {/* Top Right Logo Slot - Enhanced with subtle background */}
-      <div className="poster-logo" style={{ top: '2rem', right: '2rem', opacity: 0.95 }}>
-        {slide.logoUrl ? (
+      {/* Top Right Logo Slot - Only if present */}
+      {slide.logoUrl && (
+        <div className="poster-logo" style={{ top: '3.5rem', right: '2rem', opacity: 0.95 }}>
           <img
             src={slide.logoUrl}
             alt="Logo"
@@ -131,23 +147,8 @@ const SlideCanvas = forwardRef<HTMLDivElement, SlideCanvasProps>(({ slide, scale
               filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
             }}
           />
-        ) : (
-          <div style={{ 
-            position: 'relative', 
-            width: '3rem', 
-            height: '3rem',
-            background: `linear-gradient(135deg, ${slide.accentColor}22 0%, ${slide.accentColor}11 100%)`,
-            borderRadius: '12px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill={slide.accentColor} opacity="0.6">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-            </svg>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Main Content */}
       <div className="poster-content">

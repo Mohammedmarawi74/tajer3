@@ -248,6 +248,17 @@ const EditorPanel: React.FC<EditorPanelProps> = ({
             </div>
 
             <div className="form-group">
+              <label className="form-label">اسم المشروع/المنصة</label>
+              <input
+                type="text"
+                value={slide.brandName}
+                onChange={(e) => onUpdate({ brandName: e.target.value })}
+                className="form-input"
+                dir="rtl"
+              />
+            </div>
+
+            <div className="form-group">
               <label className="form-label">الرقم الخلفي</label>
               <input
                 type="text"

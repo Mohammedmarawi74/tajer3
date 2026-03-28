@@ -34,7 +34,7 @@ export const INITIAL_SLIDES: Slide[] = [
     title: 'ثلاثة مبادئ أساسية لتقنية المعلومات',
     description: 'الأسس الرئيسية لبناء منتجات رقمية قابلة للتطوير وآمنة وموثوقة.',
     numberText: '03',
-    brandName: 'Al-Tajer Digital',
+    brandName: 'منصة التاجر',
     accentColor: DEFAULT_ACCENT_COLOR,
     secondaryColor: DEFAULT_SECONDARY_COLOR,
     showGrid: false,
